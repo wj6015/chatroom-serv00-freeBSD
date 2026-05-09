@@ -1,0 +1,33 @@
+name: Build-FreeBSD-Chatroom
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build FreeBSD amd64
+        run: |
+          mkdir -p release
+
+          GOOS=freebsd GOARCH=amd64 CGO_ENABLED=1 \
+          go build -o release/chatroom-freebsd-amd64 main.go
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chatroom-freebsd
+          path: |
+            release/chatroom-freebsd-amd64
+            static/
+            config.json

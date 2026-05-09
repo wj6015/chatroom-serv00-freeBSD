@@ -27,7 +27,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/coder/websocket"
-	_ "github.com/mattn/sqlite"
+	_ "modernc.org/sqlite"
 )
 
 //go:embed static/index.html

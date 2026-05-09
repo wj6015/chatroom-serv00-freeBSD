@@ -27,7 +27,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/coder/websocket"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/sqlite"
 )
 
 //go:embed static/index.html
@@ -1215,7 +1215,7 @@ func setupDatabase() error {
 
 	log.Printf("Using database: %s", dbPath)
 
-	db, err = sql.Open("sqlite3", dbPath+"?_journal_mode=WAL&_busy_timeout=10000")
+	db, err = sql.Open("sqlite", dbPath+"?_journal_mode=WAL&_busy_timeout=10000")
 	if err != nil {
 		return err
 	}

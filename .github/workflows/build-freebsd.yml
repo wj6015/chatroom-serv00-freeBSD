@@ -14,14 +14,12 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version: '1.24'
 
       - name: Build FreeBSD amd64
         run: |
           mkdir -p release
-
-          GOOS=freebsd GOARCH=amd64 CGO_ENABLED=1 \
-          go build -o release/chatroom-freebsd-amd64 main.go
+          GOOS=freebsd GOARCH=amd64 CGO_ENABLED=0 go build -o release/chatroom-freebsd-amd64 main.go
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4

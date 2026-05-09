@@ -1,0 +1,10 @@
+{
+  "port": "your port here",
+  "storage_type": "r2",
+  "r2_account_id": "xxx",
+  "r2_access_key_id": "xxx",
+  "r2_secret_access_key": "xxx",
+  "r2_bucket": "chatroom-files",
+  "r2_public_base_url": "https://xxx",
+  "database_path": "./chat.db"
+}

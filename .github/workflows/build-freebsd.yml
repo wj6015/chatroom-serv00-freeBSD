@@ -16,6 +16,11 @@ jobs:
         with:
           go-version: '1.24'
 
+      - name: Download dependencies
+        run: |
+          go mod download
+          go mod tidy
+
       - name: Build FreeBSD amd64
         run: |
           mkdir -p release

@@ -1608,6 +1608,8 @@ func main() {
 		client.readPump(ctx)
 	})
 
-	log.Printf("Running on :%s", serverPort)
-	log.Fatal(http.ListenAndServe(":"+serverPort, nil))
+	listenAddr := "127.0.0.1:" + serverPort
+
+	log.Printf("Running on %s", listenAddr)
+	log.Fatal(http.ListenAndServe(listenAddr, nil))
 }
